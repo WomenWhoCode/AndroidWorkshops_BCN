@@ -9,7 +9,7 @@
         android:background="@drawable/background"
         tools:context=".MainActivity">
     <Button
-            android:text="Huge dog"
+            android:text="@string/huge_dog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="viewHugeDog"
@@ -17,11 +17,18 @@
             android:id="@+id/button"/>
     <Button
             android:layout_marginTop="16dp"
-            android:text="Tiny dog"
+            android:text="@string/tiny_dog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="viewTinyDog"
             android:textSize="12sp"
             android:id="@+id/button2"/>
+    <Button
+            android:layout_marginTop="16dp"
+            android:text="@string/add_doggo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="addDoggo"
+            android:id="@+id/button_add"/>
 
 </LinearLayout>

@@ -22,4 +22,8 @@ class MainActivity : AppCompatActivity() {
     fun viewTinyDog(v: View) {
         startActivity(Intent(this, TinyDogActivity::class.java))
     }
+
+    fun addDoggo(v: View) {
+        startActivity(Intent(this, AddDoggoActivity::class.java))
+    }
 }
