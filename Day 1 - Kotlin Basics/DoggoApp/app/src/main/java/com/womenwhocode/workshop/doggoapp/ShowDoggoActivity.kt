@@ -8,6 +8,12 @@ import android.provider.MediaStore
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
+const val NAME_FIELD: String = "NAME"
+const val AGE_FIELD: String = "AGE"
+const val SIZE_FIELD: String = "SIZE"
+const val PHOTO_FIELD: String = "SIZE"
+
+
 class ShowDoggoActivity : AppCompatActivity() {
 
     lateinit var name : TextView
@@ -27,10 +33,10 @@ class ShowDoggoActivity : AppCompatActivity() {
     }
 
     private fun getDogInfo(extras: Bundle?) {
-        name.text = extras?.getString("name")
-        age.text = extras?.getString("age")
-        size.text = extras?.getString("size")
-        photo.setImageBitmap(extras?.getParcelable("photo"))
+        name.text = extras?.getString(NAME_FIELD)
+        age.text = extras?.getString(AGE_FIELD)
+        size.text = extras?.getString(SIZE_FIELD)
+        photo.setImageBitmap(extras?.getParcelable(PHOTO_FIELD))
     }
 
 

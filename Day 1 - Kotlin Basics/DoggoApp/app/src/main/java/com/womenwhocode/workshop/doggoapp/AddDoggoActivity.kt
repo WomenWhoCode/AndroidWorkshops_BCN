@@ -46,10 +46,10 @@ class AddDoggoActivity : AppCompatActivity() {
 
     private fun displayDogInfo(name: String, age: String, size: String, photo: Bitmap?) {
         var intent = Intent(this, ShowDoggoActivity::class.java)
-        intent.putExtra("name",name)
-        intent.putExtra("age",age)
-        intent.putExtra("size",size)
-        intent.putExtra("photo",photo)
+        intent.putExtra(NAME_FIELD,name)
+        intent.putExtra(AGE_FIELD,age)
+        intent.putExtra(SIZE_FIELD,size)
+        intent.putExtra(PHOTO_FIELD,photo)
         startActivity(intent)
     }
 
