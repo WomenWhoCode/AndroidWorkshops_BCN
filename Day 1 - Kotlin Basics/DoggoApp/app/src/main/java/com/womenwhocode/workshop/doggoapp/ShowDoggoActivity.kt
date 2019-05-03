@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 const val NAME_FIELD: String = "NAME"
 const val AGE_FIELD: String = "AGE"
 const val SIZE_FIELD: String = "SIZE"
-const val PHOTO_FIELD: String = "SIZE"
+const val PHOTO_FIELD: String = "PHOTO"
 
 
 class ShowDoggoActivity : AppCompatActivity() {

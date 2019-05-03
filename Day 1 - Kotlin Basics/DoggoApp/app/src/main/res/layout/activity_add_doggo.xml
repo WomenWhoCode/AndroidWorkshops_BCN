@@ -50,6 +50,7 @@
         <EditText android:id="@+id/age_text"
                   android:layout_width="100dp"
                   android:layout_height="wrap_content"
+                  android:inputType="number"
                   app:layout_constraintLeft_toRightOf="@id/age_label"
                   app:layout_constraintEnd_toEndOf="parent"
                   app:layout_constraintStart_toEndOf="@+id/name_label"
