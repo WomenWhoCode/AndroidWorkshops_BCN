@@ -4,8 +4,7 @@ Learn the basics of Android and Kotlin programming, and take the first step on y
 
 By the end of this course, you will have learned how to build an app’s layout and then practiced those skills by making a form to collect user input.
 
-During this second workshop we will follow the following codelab:
-http://xariti.pandiandcode.com/codelabs/wwcbcn-android-interface-inputs/#0
+During this second workshop we will follow [this codelab](http://xariti.pandiandcode.com/codelabs/wwcbcn-android-interface-inputs/#0)
 
 ## What you'll learn
 
