@@ -1,6 +1,6 @@
 ## Installation instructions
  
-### Step 1: Install Java
+### Step 1: Install Java 8
      
 #### Java installation verification
 You will need to open a Terminal.
