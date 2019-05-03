@@ -38,10 +38,10 @@ for your dog. You can choose the layout you want ( `LinearLayout` which is less 
 
 
 ### Exercise 2
-Lets take a photo of our fav dog, for this we need :
+Lets take a photo of our fav dog, for this, we need :
 * Add 1 button for taking the photo
 * Use a imageView for showing the photo we are going to take
-* ✓Tip: Taking a photo can be difficult but we thought that is cool to have it, so we are going to extra help you in this part first [check the docs](https://developer.android.com/training/camera/photobasics) to understand a bit what is happening
+* ✓Tip: Taking a photo can be difficult, but we thought that is cool to have it. So we are going to extra help you in this part. First [check the docs](https://developer.android.com/training/camera/photobasics) to understand a bit what is happening
 and second you will only need to copy this code and pasted it in `AddDoggoActivity.kt`
 
 * First add the permissions to your app, so the user will be asked if they want our app to use the camera:
@@ -78,8 +78,8 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
 ```
 
 ### Exercise 3
-Add another activity and layout for showing all the data we gathered with the form you can use `ShowDoggoActivity.kt` and `activity_show_doggo.xml`
-For this we need to share the info from `AddDoggoActivity.kt` with this new activity. For this we can store data in the intent. This is a hit of how to do it :
+Add another activity and layout for showing all the data we gathered with the form. You can use `ShowDoggoActivity.kt` and `activity_show_doggo.xml`
+But first we need to share the info from `AddDoggoActivity.kt` with this new activity. For this we can store data in the intent. This is a hit of how to do it :
 ```
   private fun displayDogInfo(name: String, age: String, size: String, photo: Bitmap) {
         var intent = Intent(this, ShowDoggoActivity::class.java)
@@ -94,5 +94,5 @@ For this we need to share the info from `AddDoggoActivity.kt` with this new acti
 
 ### Final result
 
-<img src="https://user-images.githubusercontent.com/923280/56064626-da33e600-5d72-11e9-9c18-86f96cdae23e.gif" width="100" />
+<img src="https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%202%20-%20Android%20Basics/form_lesson_2.gif" width="100" />
 
