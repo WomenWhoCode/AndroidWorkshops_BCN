@@ -110,7 +110,7 @@ If you get a message displaying a version of java 8 or later (for example javac 
   Navigate to that folder in the command line and clone the project.
   ```
   cd src
-  git clone https://github.com/WomenWhoCode/WWCodeBarcelona.git
+  git clone https://github.com/WomenWhoCode/AndroidWorkshops_BCN.git
   ```
   A folder called `AndroidWorkshops_BCN` will be created.
   Wait until the cloning is complete.
