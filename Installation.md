@@ -10,11 +10,11 @@ You will see a program in the list, select it.
   - Mac: look for the app Terminal
 Check if you have `java` installed, type in the command line (Terminal):
  
- `java -version` or `which java`
+ `java -version`
       
-If you get a message displaying a path or a version of java, you can skip to step 2 because it means that you already have java installed.
+If you get a message displaying a version of java 8 or later for example (javac 1.8.0_201), you can skip to step 2 because it means that you already have java installed. if you get javac 1.6 or 1.7 you still need to follow these steps as these versions are too old
    
-#### Java installation 
+#### Java 8 installation 
 * Linux (Ubuntu or Mint):
         
      ```        
