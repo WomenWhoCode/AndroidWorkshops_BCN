@@ -17,9 +17,9 @@ Please Make sure you can attend every Saturday and Tuesday if possible.
 
 ![calendar of workshops](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/workshop_calendar.PNG)
 
-- [Day 1 - Kotlin introduction and Android Components ](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%201%20-%20Kotlin%20Basics/Day1.md)
+- [Day 1 - Kotlin introduction and Android Components ](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%201%20-%20Kotlin%20Basics/README.md)
 
-- [Day 2 - Android Basics: User Interface and User Input ](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%202%20-%20Android%20Basics/Day2.md)
+- [Day 2 - Android Basics: User Interface and User Input ](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%202%20-%20Android%20Basics/README.md)
 
 - [Day 3 - Multi-Screen Apps ](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%203%20-%20Multi%20Screen%20Apps/Day3.md)
 
