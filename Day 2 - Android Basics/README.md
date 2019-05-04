@@ -7,7 +7,7 @@ By the end of this course, you will have learned how to build an app’s layout 
 During this second workshop we will follow [this codelab](http://xariti.pandiandcode.com/codelabs/wwcbcn-android-interface-inputs/#0).
 
 ## Layouts and Views
-Basic presentation with examples [here](https://docs.google.com/presentation/d/1XBFih4uRmscfadhR5d-mVG-ioaOhR9SegWAW4Z30OSI/edit?usp=sharing).
+Basic presentation with examples [here](https://docs.google.com/presentation/d/1XBFih4uRmscfadhR5d-mVG-ioaOhR9SegWAW4Z30OSI/edit?usp=sharing). Learn more about layouts from the [documentation](https://developer.android.com/guide/topics/ui/declaring-layout).
 
 ## What you'll learn
 
