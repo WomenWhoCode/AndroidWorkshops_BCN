@@ -1,6 +1,6 @@
 # Day 3 - Multi-Screen Apps
 
-This course is designed for students who have completed [Day 1](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day1%20-%20Kotlin%20Basics/README.md) and [Day 2](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%202%20-%20Android%20Basics/README.md). You don’t need any programming experience besides that course!
+This course is designed for students who have completed [Day 1](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day1%20-%20Kotlin%20Basics) and [Day 2](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%202%20-%20Android%20Basics). You don’t need any programming experience besides that course!
 
 By the end of the course, you’ll build a language-learning app that you can share with your friends. 
 
@@ -16,6 +16,6 @@ This codelab is written for programmers and assumes you know either Java or Kotl
 
 If you do not know any Kotlin, check this [Kotlin Basic Syntax](https://kotlinlang.org/docs/reference/basic-syntax.html) link it will teach you what you need to know to move forward with the workshop. 
 
-If you missed the past day check out [Day 1](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%201%20-%20Kotlin%20Basics/README.md) and [Day 2](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%202%20-%20Android%20Basics/README.md). 
+If you missed the past day check out [Day 1](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%201%20-%20Kotlin%20Basics) and [Day 2](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%202%20-%20Android%20Basics). 
 
 To work through this codelab, you will need a computer that can run Android Studio (or already has Android Studio installed). Install Android Studio following [these instructions](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Installation.md).
