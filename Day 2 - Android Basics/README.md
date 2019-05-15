@@ -72,7 +72,7 @@ private fun dispatchTakePictureIntent() {
 
 * Third paste this code in  `AddDoggoActivity.kt` and this code receives the photo when the camera is finished. At the last line we see an imageView (this is the imageView of our layout) and we set the photo with `setImageBitmap`.
 ```
-override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
         val imageBitmap = data.extras.get("data") as Bitmap
         imageView.setImageBitmap(imageBitmap)
