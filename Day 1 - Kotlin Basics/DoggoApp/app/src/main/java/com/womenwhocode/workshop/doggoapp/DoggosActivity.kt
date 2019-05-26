@@ -2,8 +2,8 @@ package com.womenwhocode.workshop.doggoapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 
 class DoggosActivity : AppCompatActivity() {
 
@@ -16,7 +16,7 @@ class DoggosActivity : AppCompatActivity() {
 
     private fun initRecyclerView() {
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.layoutManager = GridLayoutManager(this, 2)
+        recyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         recyclerView.adapter = DoggosAdapter(doggoList())
     }
 
