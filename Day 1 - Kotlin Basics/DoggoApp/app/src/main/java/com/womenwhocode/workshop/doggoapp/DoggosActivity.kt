@@ -2,12 +2,21 @@ package com.womenwhocode.workshop.doggoapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 
 class DoggosActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doggos)
+
+        initRecyclerView()
+    }
+
+    private fun initRecyclerView() {
+        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+
+        recyclerView.adapter = DoggosAdapter(doggoList())
     }
 
     private fun doggoList() = listOf(
