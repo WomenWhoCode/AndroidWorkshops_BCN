@@ -28,6 +28,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun seeMoreDoggos(v: View) {
-
+        startActivity(Intent(this, DoggosActivity::class.java))
     }
 }
