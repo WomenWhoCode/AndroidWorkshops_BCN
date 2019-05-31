@@ -39,6 +39,7 @@ class AddDoggoActivity : AppCompatActivity() {
     private fun saveDog() {
         if (name.text.isEmpty()) {
             name.error = "Doggo name plz"
+       }
         if(age.text.isEmpty())
             age.error = "Doggo age plz"
         displayDogInfo(name.text.toString(),age.text.toString(), size.selectedItem.toString(),imageBitmap)
