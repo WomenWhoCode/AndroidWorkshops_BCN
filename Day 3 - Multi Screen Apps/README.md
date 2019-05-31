@@ -27,7 +27,7 @@ If you missed the past day check out [Day 1](https://github.com/WomenWhoCode/And
 To work through this codelab, you will need a computer that can run Android Studio (or already has Android Studio installed). Install Android Studio following [these instructions](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Installation.md).
 
 ## Homework
-You can continue working in your homework app or use [the solution from day 2](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%201%20-%20Kotlin%20Basics/DoggoApp). We recommend you use your own problem, but not hesitate on check our solution.
+You can continue working in your homework app or use [the solution from day 2](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%201%20-%20Kotlin%20Basics/DoggoApp). We recommend you use your own problem, but not hesitate to check our solution.
 
 ### Exercise 1
 We want to show in our app a list of cute doggos :dog:. 
@@ -82,7 +82,7 @@ private fun doggoList() = listOf(
     )
 ```
 
-Now that we have our `Doggo.kt` data class and our list of dogs in `DoggosActivity.kt` we can create our Adapter which will be on charge of display the data into the RecyclerView.
+Now that we have our `Doggo.kt` data class and our list of dogs in `DoggosActivity.kt` we can create our Adapter which will be in charge of display the data into the RecyclerView.
 Let's create a new file called `DoggosAdapter.kt`. This new file will contain our `DoggosAdapter` and `DoggoViewHolder`, the adapter will use the `DoggoViewHolder` to contain the view of each item(:dog:). 
 Create also `layout_doggo_item.xml` which will be used to inflate each view for the item(:dog:). You should display an image, the name, the age and the size of the dog in `layout_doggo_item.xml` layout.
 
