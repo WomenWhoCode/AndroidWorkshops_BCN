@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">DoggoApp</string>
+    <string name="add_doggo">Add doggo</string>
+    <string name="tiny_dog">Tiny dog</string>
+    <string name="huge_dog">Huge dog</string>
+    <string name="add_a_dog">Add a dog:</string>
+    <string name="new_doggo">New doggo</string>
 </resources>

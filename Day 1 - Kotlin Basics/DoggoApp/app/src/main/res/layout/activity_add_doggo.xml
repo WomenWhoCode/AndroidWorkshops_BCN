@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical"
+                                                       android:layout_width="match_parent"
+                                                       android:layout_height="wrap_content"
+    >
+
+        <TextView android:id="@+id/add_dog_label"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="@string/add_a_dog"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toTopOf="parent"
+                  android:layout_marginTop="24dp"
+                  android:layout_marginStart="32dp"/>
+
+        <TextView android:id="@+id/name_label"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Name :"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/add_dog_label"
+                  android:layout_marginTop="32dp"
+                  android:layout_marginStart="32dp"/>
+
+        <EditText android:id="@+id/name_text"
+                  android:layout_width="250dp"
+                  android:layout_height="wrap_content"
+                  app:layout_constraintLeft_toRightOf="@id/name_label"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toEndOf="@+id/name_label"
+                  android:layout_marginStart="8dp"
+                  app:layout_constraintBaseline_toBaselineOf="@id/name_label"
+                  android:layout_marginEnd="8dp"
+                  app:layout_constraintHorizontal_bias="0.0"/>
+
+        <TextView android:id="@+id/age_label"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Age :"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/name_label"
+                  android:layout_marginTop="32dp"
+                  android:layout_marginStart="32dp"/>
+
+        <EditText android:id="@+id/age_text"
+                  android:layout_width="100dp"
+                  android:layout_height="wrap_content"
+                  android:inputType="number"
+                  app:layout_constraintLeft_toRightOf="@id/age_label"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toEndOf="@+id/name_label"
+                  android:layout_marginStart="8dp"
+                  app:layout_constraintBaseline_toBaselineOf="@id/age_label"
+                  android:layout_marginEnd="8dp"
+                  app:layout_constraintHorizontal_bias="0.0"/>
+
+        <TextView android:id="@+id/size_label"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Size :"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/age_label"
+                  android:layout_marginTop="32dp"
+                  android:layout_marginStart="32dp"/>
+
+        <Spinner android:id="@+id/size_spinner"
+                 android:layout_width="250dp"
+                 android:layout_height="wrap_content"
+                 android:layout_marginEnd="24dp"
+                 android:layout_marginStart="8dp"
+                 app:layout_constraintBaseline_toBaselineOf="@id/size_label"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toEndOf="@+id/size_label"
+                 app:layout_constraintHorizontal_bias="0.0"
+                 android:entries="@array/size_doggo"/>
+
+        <TextView android:id="@+id/photo_label"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Photo :"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/size_label"
+                  android:layout_marginTop="32dp"
+                  android:layout_marginStart="32dp"/>
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/photo_button"
+                android:text="Take a photo"
+                app:layout_constraintLeft_toRightOf="@id/photo_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/photo_label"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@id/photo_label"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintHorizontal_bias="0.0"/>
+
+        <ImageView android:id="@+id/photo_image"
+                   android:background="@color/colorPrimaryDark"
+                   android:layout_width="250dp"
+                   android:layout_height="250dp"
+                   app:layout_constraintTop_toBottomOf="@+id/photo_label"
+                   android:layout_marginTop="32dp"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"/>
+
+        <Button android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/save_dog"
+                android:text="Save doggo"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/photo_image"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="32dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
