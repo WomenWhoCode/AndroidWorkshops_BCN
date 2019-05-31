@@ -37,7 +37,7 @@ class AddDoggoActivity : AppCompatActivity() {
     }
 
     private fun saveDog() {
-        if (name.text.isEmpty())
+        if (name.text.isEmpty()) {
             name.error = "Doggo name plz"
         if(age.text.isEmpty())
             age.error = "Doggo age plz"
