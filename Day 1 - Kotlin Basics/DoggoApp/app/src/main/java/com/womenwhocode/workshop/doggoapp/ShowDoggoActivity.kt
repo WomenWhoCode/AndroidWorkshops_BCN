@@ -39,5 +39,4 @@ class ShowDoggoActivity : AppCompatActivity() {
         photo.setImageBitmap(extras?.getParcelable(PHOTO_FIELD))
     }
 
-
 }
