@@ -31,4 +31,12 @@
             android:onClick="addDoggo"
             android:id="@+id/button_add"/>
 
+    <Button
+            android:layout_marginTop="16dp"
+            android:text="@string/see_more_dogs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="seeMoreDoggos"
+            android:id="@+id/button_see_more"/>
+
 </LinearLayout>

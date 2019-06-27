@@ -1,9 +1,9 @@
 package com.womenwhocode.workshop.doggoapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,5 +25,9 @@ class MainActivity : AppCompatActivity() {
 
     fun addDoggo(v: View) {
         startActivity(Intent(this, AddDoggoActivity::class.java))
+    }
+
+    fun seeMoreDoggos(v: View) {
+        startActivity(Intent(this, DoggosActivity::class.java))
     }
 }

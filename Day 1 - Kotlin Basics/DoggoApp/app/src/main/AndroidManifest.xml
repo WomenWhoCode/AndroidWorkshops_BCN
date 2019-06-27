@@ -27,6 +27,7 @@
         </activity>
         <activity android:name=".AddDoggoActivity"/>
         <activity android:name=".ShowDoggoActivity"/>
+        <activity android:name=".DoggosActivity"/>
     </application>
 
 </manifest>
