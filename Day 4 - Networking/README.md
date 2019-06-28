@@ -78,7 +78,7 @@ In `AbdroidManifest`, just below the camera permission you need to add:
 ```
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
-By default the apps do not have access to the internet. Learn more about Android permissions [here](https://developer.android.com/guide/topics/permissions/overview)
+By default, the apps do not have access to the internet. Learn more about Android permissions [here](https://developer.android.com/guide/topics/permissions/overview).
 
 Open `app/build.gradle` and add all these dependencies or libraries inside `dependencies {}`, yes we will need them all :smile:
 ```
