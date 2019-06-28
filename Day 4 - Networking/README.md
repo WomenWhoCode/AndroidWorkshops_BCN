@@ -27,16 +27,16 @@ To work through this codelab, you will need a computer that can run Android Stud
 After completing the codelab, we will continue with the existing DoggoApp. If you do not have your own project, just use the one in [DoggoApp](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/tree/homework-day4/Day%201%20-%20Kotlin%20Basics/DoggoApp) which has the solution for the day 3 homework. We will base the work on that project. During the last codelab you displayed a list of dogs but we used manually generated data for that, remember the method:
 
 ```
-    private fun doggoList() = listOf(
-        Doggo("Toby", "3 months", "Big", R.drawable.doggo_1),
-        Doggo("Snowy", "2 months", "Big", R.drawable.doggo_2),
-        Doggo("Luca", "8 months", "Medium", R.drawable.doggo_3),
-        Doggo("Chispi", "2 years", "Small", R.drawable.doggo_4),
-        Doggo("Willy", "6 months", "Big", R.drawable.huge_dog_malamute),
-        Doggo("Coco", "3 years", "Small", R.drawable.tiny_dog_norfolk),
-        Doggo("Balto", "3 months", "Big", R.drawable.doggo_1),
-        Doggo("Boby", "2 months", "Big", R.drawable.doggo_2)
-    )
+private fun doggoList() = listOf(
+    Doggo("Toby", "3 months", "Big", R.drawable.doggo_1),
+    Doggo("Snowy", "2 months", "Big", R.drawable.doggo_2),
+    Doggo("Luca", "8 months", "Medium", R.drawable.doggo_3),
+    Doggo("Chispi", "2 years", "Small", R.drawable.doggo_4),
+    Doggo("Willy", "6 months", "Big", R.drawable.huge_dog_malamute),
+    Doggo("Coco", "3 years", "Small", R.drawable.tiny_dog_norfolk),
+    Doggo("Balto", "3 months", "Big", R.drawable.doggo_1),
+    Doggo("Boby", "2 months", "Big", R.drawable.doggo_2)
+)
 
 ```
 In real life, we usually want to display data we get from the internet. Here is the url with the json data containing a list of dogs: https://github.com/valllllll2000/DogApi/blob/master/list.json
@@ -51,7 +51,7 @@ Take a moment to look at that file. Here is an example of a single dog informati
     "url": "https://cdn2.thedogapi.com/images/B1SV7gqN7_1280.jpg",
     "width": 680,
     "height": 453
-  }
+}
 ```
 And here is our Doggo object
 ```
@@ -82,18 +82,18 @@ By default, the apps do not have access to the internet. Learn more about Androi
 
 Open `app/build.gradle` and add all these dependencies or libraries inside `dependencies {}`, yes we will need them all :smile:
 ```
-    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-    implementation 'com.squareup.retrofit2:converter-moshi:2.5.0'
-    implementation 'com.squareup.moshi:moshi:1.8.0'
-    implementation 'com.squareup.moshi:moshi-kotlin:1.8.0'
+implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+implementation 'com.squareup.retrofit2:converter-moshi:2.5.0'
+implementation 'com.squareup.moshi:moshi:1.8.0'
+implementation 'com.squareup.moshi:moshi-kotlin:1.8.0'
 
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0'
+implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
+implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0'
 
-    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
 
-    implementation 'com.github.bumptech.glide:glide:4.8.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+implementation 'com.github.bumptech.glide:glide:4.8.0'
+implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
 ```
 
   3) Networking
@@ -120,9 +120,8 @@ DoggoViewModel extends [ViewModel](https://developer.android.com/topic/libraries
 Inside DoggoViewModel you need to define 2 methods
 
 ```
-fun getDoggos(): MutableLiveData<List<Doggo>> {
-       
-    }
+fun getDoggos(): MutableLiveData<List<Doggo>> {     
+}
 ```
 The logic of this method, check if doggos has a null or empty value and if that's the case call the `loadDoggos()` and then always return `doggos`.
 
