@@ -126,4 +126,4 @@ fun getDoggos(): MutableLiveData<List<Doggo>> {
 ```
 The logic of this method, check if doggos has a null or empty value and if that's the case call the `loadDoggos()` and then always return `doggos`.
 
-You also need to define the `loadDoggos` private method. It should use the coroutines and the DogApi to load the dogs and setup the doggos value with the result. Use the codelab's code as example.
+You also need to define the `loadDoggos()` private method. It should use the coroutines and the `DogApi` to load the dogs and setup the doggos value with the result. Use the codelab's code as example.
