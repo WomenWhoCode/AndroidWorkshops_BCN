@@ -150,5 +150,14 @@ Then, we call the getDoggos method inside viewModel and add an observable wich o
 Now you will have to write the method which should do 3 things: delete the content of doggos, add all the new doggos param (it) to doggos and finally we need to notify the adapter of the change.
 
 5) Image loading
+
 We will use the [Glide](https://github.com/bumptech/glide) library to display the images. The JSON object only contains the url with the image location but it still needs to be downloaded and used for the image view.
 In `DoggosAdapter` replace the line image.setImageResource(doggo.image) by
+
+Run the app and press `see more doggos` button, what do you see? oh no the images are all stretched :scream:
+This can be fixed easily: Open `layout_doggo_item.xml` and replace set the `scaleType` to `centerInside`.
+Run the app again, you will see how the images are loaded little by little when you scroll the list.
+
+If you want to practice more you can do the next codelab: https://codelabs.developers.google.com/codelabs/kotlin-android-training-internet-images/index.html?index=..%2F..android-kotlin-fundamentals#0
+
+Our app starts to look more and more like a real app, doesn't it?
