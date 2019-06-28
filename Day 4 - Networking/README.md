@@ -126,3 +126,14 @@ fun getDoggos(): MutableLiveData<List<Doggo>> {
 The logic of this method, check if doggos has a null or empty value and if that's the case call the `loadDoggos()` and then always return `doggos`.
 
 You also need to define the `loadDoggos()` private method. It should use the coroutines and the `DogApi` to load the dogs and setup the doggos value with the result. Use the codelab's code as example.
+
+Same as in the codelab add a `viewModel` to `DoggosActivity`. 
+Delete the `doggoList()` method we will no use it anymore. 
+Replace all the initRecylerView() code by:
+```
+val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+recyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
+val doggosAdapter = DoggosAdapter()
+recyclerView.adapter = doggosAdapter
+viewModel.getDoggos().observe(this, Observer<List<Doggo>> { dogs -> dogs?.let { doggosAdapter.displayDoggos(it) } })
+```
