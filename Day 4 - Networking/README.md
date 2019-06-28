@@ -82,7 +82,7 @@ By default the apps do not have access to the internet. Learn more about Android
 
 Open `app/build.gradle` and add all these dependencies or libraries inside `dependencies {}`, yes we will need them all :smile:
 ```
- implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.retrofit2:converter-moshi:2.5.0'
     implementation 'com.squareup.moshi:moshi:1.8.0'
     implementation 'com.squareup.moshi:moshi-kotlin:1.8.0'
