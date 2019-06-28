@@ -102,5 +102,5 @@ Open `app/build.gradle` and add all these dependencies or libraries inside `depe
   * base url is "https://raw.githubusercontent.com/valllllll2000/DogApi/master/"
   * copy the restrofit and moshi properties, they are identical to the codelabs one.
   * in the same file add an interface called `DogApiService` with a method called `getDoggos()` which should return `Deferred<List<Doggo>>`. The GET annotation will be like this: `@GET("list.json")`
-  * Add a DogApi object which will return a DogApiService
+  * Add a DogApi object which will return a `DogApiService`.
   
