@@ -110,6 +110,20 @@ Open `app/build.gradle` and add all these dependencies or libraries inside `depe
  In android Studio right click on the pa ckage name `com.womenwhocode.workshop.doggoapp` and select New -> package. Name it `list`. Move the DoggosAdapter and DoggosActivity to the package `list`. Create the `DoggoViewModel` kotlin class. Here is how it should look:
 ```
 class DoggoViewModel: ViewModel() {
+    private val doggos: MutableLiveData<List<Doggo>> = MutableLiveData()
+    private val viewModelJob = Job()
+    private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 }
 ```
 DoggoViewModel extends [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) class. 
+
+Inside DoggoViewModel you need to define 2 methods
+
+```
+fun getDoggos(): MutableLiveData<List<Doggo>> {
+       
+    }
+```
+The logic of this method, check if doggos has a null or empty value and if that's the case call the `loadDoggos()` and then always return `doggos`.
+
+You also need to define the `loadDoggos` private method. It should use the coroutines and the DogApi to load the dogs and setup the doggos value with the result. Use the codelab's code as example.
