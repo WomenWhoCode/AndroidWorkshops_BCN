@@ -97,10 +97,19 @@ Open `app/build.gradle` and add all these dependencies or libraries inside `depe
 ```
 
   3) Networking
-  In android Studio right click on the pa ckage name `com.womenwhocode.workshop.doggoapp` and select New -> package. Name it `ǹetworking`. Inside the networking package create a new Kotlin file called DogApiService. Here you can use the codelab's code to fill the missing ñpgic to get your dog list.
+  
+  In android Studio right click on the pa ckage name `com.womenwhocode.workshop.doggoapp` and select New -> package. Name it `ǹetworking`. Inside the networking package create a new Kotlin file called DogApiService. Here you can use the codelab's code to fill the missing logic to get your dog list.
   
   * base url is "https://raw.githubusercontent.com/valllllll2000/DogApi/master/"
   * copy the restrofit and moshi properties, they are identical to the codelabs one.
   * in the same file add an interface called `DogApiService` with a method called `getDoggos()` which should return `Deferred<List<Doggo>>`. The GET annotation will be like this: `@GET("list.json")`
   * Add a DogApi object which will return a `DogApiService`.
   
+4) List and ViewModel
+
+ In android Studio right click on the pa ckage name `com.womenwhocode.workshop.doggoapp` and select New -> package. Name it `list`. Move the DoggosAdapter and DoggosActivity to the package `list`. Create the `DoggoViewModel` kotlin class. Here is how it should look:
+```
+class DoggoViewModel: ViewModel() {
+}
+```
+DoggoViewModel extends [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) class. 
