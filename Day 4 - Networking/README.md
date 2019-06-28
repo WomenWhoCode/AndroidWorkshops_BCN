@@ -156,8 +156,8 @@ In `DoggosAdapter` replace the line image.setImageResource(doggo.image) by
 
 Run the app and press `see more doggos` button, what do you see? oh no the images are all stretched :scream:
 This can be fixed easily: Open `layout_doggo_item.xml` and replace set the `scaleType` to `centerInside`.
-Run the app again, you will see how the images are loaded little by little when you scroll the list.
-
-If you want to practice more you can do the next codelab: https://codelabs.developers.google.com/codelabs/kotlin-android-training-internet-images/index.html?index=..%2F..android-kotlin-fundamentals#0
+Run the app again and press the button, you will see how the images are loaded little by little when you scroll the list.
 
 Our app starts to look more and more like a real app, doesn't it?
+
+If you want to practice more you can do the next codelab: https://codelabs.developers.google.com/codelabs/kotlin-android-training-internet-images/index.html?index=..%2F..android-kotlin-fundamentals#0
