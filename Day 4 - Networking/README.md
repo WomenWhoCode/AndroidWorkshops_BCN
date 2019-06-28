@@ -65,7 +65,8 @@ They are called the same in the Doggo object. What about url? The url is the add
 
 1) Doggo object
 
-Open Doggo.kt file and replace `val image: Int` by `val url: String`
+Open Doggo.kt file and replace `val image: Int` by `val url: String`.
+
 This is the new Doggo data class:
 ```
 data class Doggo(val name: String, val age: String, val size: String, val url: String)
@@ -79,7 +80,7 @@ In `AbdroidManifest`, just below the camera permission you need to add:
 ```
 By default the apps do not have access to the internet. Learn more about Android permissions [here](https://developer.android.com/guide/topics/permissions/overview)
 
-Open `app/build.gradle` and add all these dependencies or libraries inside `dependencies {}`, yes we will need them all :)
+Open `app/build.gradle` and add all these dependencies or libraries inside `dependencies {}`, yes we will need them all :smile:
 ```
  implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.retrofit2:converter-moshi:2.5.0'
