@@ -145,4 +145,10 @@ class DoggosAdapter(private val doggos: MutableList<Doggo> = arrayListOf()) : Re
 ```
 The difference here is, we need a `MutableList` as `List` in Kotlin is immutable. Since we start by initialising the adapter and then we load the list of dogs asynchronously, the list will need to be modified afterwards. Also notice that doggos param is no longer mandatory. If no doggos is passed to the constructor, the list is initialized with a default value (here an empty list).
 
-Then, we call the getDoggos method inside viewModel and add an observable wich once the doggos value is updated, we call the adapters `displayDoggos()` method. You will get compilation errors since that method does not exist. Put the cursor in the red area, press Alt + Enter and select the `Create member function DoggosAdapter.displayDoggos` press enter several times and you will see how the empty method is created. Remove the TODO code. Now you will have to write the method which should do 3 things: delete the content of doggos, add all the new doggos param (it) to doggos and finally we need to notify the adapter of the change.
+Then, we call the getDoggos method inside viewModel and add an observable wich once the doggos value is updated, we call the adapters `displayDoggos()` method. You will get compilation errors since that method does not exist. Put the cursor in the red area, press Alt + Enter and select the `Create member function DoggosAdapter.displayDoggos` press enter several times and you will see how the empty method is created. Remove the TODO code. 
+
+Now you will have to write the method which should do 3 things: delete the content of doggos, add all the new doggos param (it) to doggos and finally we need to notify the adapter of the change.
+
+5) Image loading
+We will use the [Glide](https://github.com/bumptech/glide) library to display the images. The JSON object only contains the url with the image location but it still needs to be downloaded and used for the image view.
+In `DoggosAdapter` replace the line image.setImageResource(doggo.image) by
