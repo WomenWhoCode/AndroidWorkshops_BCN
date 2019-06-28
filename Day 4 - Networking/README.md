@@ -74,7 +74,7 @@ data class Doggo(val name: String, val age: String, val size: String, val url: S
 
 2) Permissions and dependencies
 
-In `AbdroidManifest`, just below the camera permission you need to add:
+In `AndroidManifest`, just below the camera permission you need to add:
 ```
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
