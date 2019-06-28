@@ -129,7 +129,7 @@ You also need to define the `loadDoggos()` private method. It should use the cor
 
 Same as in the codelab add a `viewModel` to `DoggosActivity`. 
 Delete the `doggoList()` method we will no use it anymore. 
-Replace all the initRecylerView() code by:
+Replace all the `initRecylerView()` code by:
 ```
 val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
 recyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
@@ -137,3 +137,10 @@ val doggosAdapter = DoggosAdapter()
 recyclerView.adapter = doggosAdapter
 viewModel.getDoggos().observe(this, Observer<List<Doggo>> { dogs -> dogs?.let { doggosAdapter.displayDoggos(it) } })
 ```
+The first 2 lines stay the same, we access the recyclerView and add a StaggeredGridLayoutManager to it.
+We then initialize the DoggosAdapter. You will get compilation errors at this point. 
+Open `DoggosAdapter` and change its signature to 
+```
+class DoggosAdapter(private val doggos: MutableList<Doggo> = arrayListOf()) : RecyclerView.Adapter<DoggoViewHolder>() {
+```
+The difference here is, we need a `MutableList` as `List` in Kotlin is immutable. Since we start by initialising the adapter and then we load the list of dogs asynchronously, the list will need to be modified afterwards. Also notice that doggos param is no longer mandatory. If no doggos is passed to the constructor, the list is initialized with a default value (here an empty list).
