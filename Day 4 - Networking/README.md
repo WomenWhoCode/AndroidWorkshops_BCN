@@ -62,6 +62,37 @@ As you can see some fields in the JSON object are interesting for us:
 * age
 * size
 They are called the same in the Doggo object. What about url? The url is the address where the image is located. In the Doggo object there is no url field. 
+
 1) Doggo object
+
 Open Doggo.kt file and replace `val image: Int` by `val url: String`
+This is the new Doggo data class:
+```
+data class Doggo(val name: String, val age: String, val size: String, val url: String)
+```
+
+2) Permissions and dependencies
+
+In `AbdroidManifest`, just below the camera permission you need to add:
+```
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+By default the apps do not have access to the internet. Learn more about Android permissions [here](https://developer.android.com/guide/topics/permissions/overview)
+
+Open `app/build.gradle` and add all these dependencies or libraries inside `dependencies {}`, yes we will need them all :)
+```
+ implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.5.0'
+    implementation 'com.squareup.moshi:moshi:1.8.0'
+    implementation 'com.squareup.moshi:moshi-kotlin:1.8.0'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0'
+
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+```
+
   
