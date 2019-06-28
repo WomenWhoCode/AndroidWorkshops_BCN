@@ -22,3 +22,46 @@ If you do not know any Kotlin, check this [Kotlin Basic Syntax](https://kotlinla
 If you missed the past day check out [Day 1](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%201%20-%20Kotlin%20Basics/),  [Day 2](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%202%20-%20Android%20Basics/) and [Day 3](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Day%203%20-%20Multi%20Screen%20Apps/).
 
 To work through this codelab, you will need a computer that can run Android Studio (or already has Android Studio installed). Install Android Studio following [this instructions](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Installation.md)
+
+## Homework
+After completing the codelab, we will continue with the existing DoggoApp. If you do not have your own project, just use the one in https://github.com/WomenWhoCode/AndroidWorkshops_BCN/tree/homework-day4/Day%201%20-%20Kotlin%20Basics/DoggoApp which has the solution for the day 3 homework. We will base the work on that project. During the last codelab you displayed a list of dogs but we used manually generated data for that, remember the method:
+
+```
+    private fun doggoList() = listOf(
+        Doggo("Toby", "3 months", "Big", R.drawable.doggo_1),
+        Doggo("Snowy", "2 months", "Big", R.drawable.doggo_2),
+        Doggo("Luca", "8 months", "Medium", R.drawable.doggo_3),
+        Doggo("Chispi", "2 years", "Small", R.drawable.doggo_4),
+        Doggo("Willy", "6 months", "Big", R.drawable.huge_dog_malamute),
+        Doggo("Coco", "3 years", "Small", R.drawable.tiny_dog_norfolk),
+        Doggo("Balto", "3 months", "Big", R.drawable.doggo_1),
+        Doggo("Boby", "2 months", "Big", R.drawable.doggo_2)
+    )
+
+```
+In real life, we usually want to display data we get from the internet. Here is the url with the json data containing a list of dogs: https://github.com/valllllll2000/DogApi/blob/master/list.json
+
+Take a moment to look at that file. Here is an example of a single dog information as a JSON object:
+```
+{
+    "name": "Maltese",
+    "age": "15 - 18 years",
+    "size": "20 - 25 cm",
+    "id": "B1SV7gqN7",
+    "url": "https://cdn2.thedogapi.com/images/B1SV7gqN7_1280.jpg",
+    "width": 680,
+    "height": 453
+  }
+```
+And here is our Doggo object
+```
+data class Doggo(val name: String, val age: String, val size: String, val image: Int)
+```
+As you can see some fields in the JSON object are interesting for us:
+* name
+* age
+* size
+They are called the same in the Doggo object. What about url? The url is the address where the image is located. In the Doggo object there is no url field. 
+1) Doggo object
+Open Doggo.kt file and replace `val image: Int` by `val url: String`
+  
