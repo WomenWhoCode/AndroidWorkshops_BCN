@@ -24,7 +24,7 @@ If you missed the past day check out [Day 1](https://github.com/WomenWhoCode/And
 To work through this codelab, you will need a computer that can run Android Studio (or already has Android Studio installed). Install Android Studio following [this instructions](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Installation.md)
 
 ## Homework
-After completing the codelab, we will continue with the existing DoggoApp. If you do not have your own project, just use the one in https://github.com/WomenWhoCode/AndroidWorkshops_BCN/tree/homework-day4/Day%201%20-%20Kotlin%20Basics/DoggoApp which has the solution for the day 3 homework. We will base the work on that project. During the last codelab you displayed a list of dogs but we used manually generated data for that, remember the method:
+After completing the codelab, we will continue with the existing DoggoApp. If you do not have your own project, just use the one in [DoggoApp](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/tree/homework-day4/Day%201%20-%20Kotlin%20Basics/DoggoApp) which has the solution for the day 3 homework. We will base the work on that project. During the last codelab you displayed a list of dogs but we used manually generated data for that, remember the method:
 
 ```
     private fun doggoList() = listOf(
