@@ -63,6 +63,7 @@ As you can see some fields in the JSON object are interesting for us:
 * name
 * age
 * size
+
 They are called the same in the Doggo object. What about url? The url is the address where the image is located. In the Doggo object there is no url field. 
 
 1) Doggo object
