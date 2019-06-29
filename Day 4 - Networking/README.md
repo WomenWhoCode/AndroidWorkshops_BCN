@@ -6,6 +6,8 @@ By the end of the course, you’ll build an app that give you real state info of
 
 If you like guided tutorials, and you want to practice more you might want to check out this course [Android Basics: Networking](https://eu.udacity.com/course/android-basics-networking--ud843).  
 
+[Networking Additional information slides](https://docs.google.com/presentation/d/1pJG8WnlHHd0XNviApBk77UxEEoA0jsuib0UkAy47qmw/edit?usp=sharing)
+
 ## What you'll learn
 
 - Getting Data from internet
