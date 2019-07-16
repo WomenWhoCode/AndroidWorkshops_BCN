@@ -16,13 +16,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * View HugeDogActivity
      */
-    fun viewHugeDog(v: View) {
-        startActivity(Intent(this, HugeDogActivity::class.java))
-    }
 
-    fun viewTinyDog(v: View) {
-        startActivity(Intent(this, TinyDogActivity::class.java))
-    }
 
     fun addDoggo(v: View) {
         startActivity(Intent(this, AddDoggoActivity::class.java))
