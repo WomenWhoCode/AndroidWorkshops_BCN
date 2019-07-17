@@ -4,12 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.womenwhocode.workshop.doggoapp.Doggo
 
 
-@Database(entities = arrayOf(DoggoEntity::class), version = 1)
+@Database(entities = arrayOf(Doggo::class), version = 1)
 public abstract class DoggosRoomDatabase : RoomDatabase() {
 
-    abstract fun wordDao(): WordDao
+    abstract fun doggoDao(): DoggoDao
 
     companion object {
         @Volatile

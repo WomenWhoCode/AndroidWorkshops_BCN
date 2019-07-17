@@ -1,3 +1,8 @@
 package com.womenwhocode.workshop.doggoapp
 
-data class Doggo(val name: String, val age: String, val size: String, val url: String)
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "dogs_table")
+data class Doggo(@PrimaryKey @ColumnInfo(name = "dog_name") val name: String, val age: String, val size: String, val url: String)

@@ -28,7 +28,7 @@ class DoggosActivity : AppCompatActivity() {
 
     private fun initFavButton() {
         val favButton = findViewById<FloatingActionButton>(R.id.floating_action_button)
-        favButton.setOnClickListener {  startActivity(Intent(this, AddDoggoActivity::class.java)) }
+        favButton.setOnClickListener { startActivity(Intent(this, AddDoggoActivity::class.java)) }
     }
 
     private fun initRecyclerView() {
@@ -37,6 +37,6 @@ class DoggosActivity : AppCompatActivity() {
         val doggosAdapter = DoggosAdapter()
         recyclerView.adapter = doggosAdapter
         viewModel.getDoggos().observe(this,
-            Observer<List<Doggo>> { dogs -> dogs?.let { doggosAdapter.displayDoggos(it) } })
+                Observer<List<Doggo>> { dogs -> dogs?.let { doggosAdapter.displayDoggos(it) } })
     }
 }
