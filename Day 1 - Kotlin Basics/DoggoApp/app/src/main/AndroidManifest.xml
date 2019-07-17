@@ -26,8 +26,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".AddDoggoActivity"/>
-        <activity android:name=".ShowDoggoActivity"/>
+        <activity android:name=".form.AddDoggoActivity"/>
+        <activity android:name=".form.ShowDoggoActivity"/>
 
     </application>
 

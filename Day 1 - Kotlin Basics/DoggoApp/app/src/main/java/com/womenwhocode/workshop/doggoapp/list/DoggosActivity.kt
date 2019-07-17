@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.womenwhocode.workshop.doggoapp.AddDoggoActivity
+import com.womenwhocode.workshop.doggoapp.form.AddDoggoActivity
 import com.womenwhocode.workshop.doggoapp.Doggo
 import com.womenwhocode.workshop.doggoapp.R
 
@@ -36,6 +36,8 @@ class DoggosActivity : AppCompatActivity() {
         recyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         val doggosAdapter = DoggosAdapter()
         recyclerView.adapter = doggosAdapter
+        viewModel.getDoggosDataBase().observe(this,
+              Observer<List<Doggo>> { dogs -> dogs?.let { doggosAdapter.displayDoggos(it) } })
         viewModel.getDoggos().observe(this,
                 Observer<List<Doggo>> { dogs -> dogs?.let { doggosAdapter.displayDoggos(it) } })
     }

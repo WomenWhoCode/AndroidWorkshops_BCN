@@ -28,7 +28,6 @@ class DoggosAdapter(private val doggos: MutableList<Doggo> = arrayListOf()) : Re
     }
 
     fun displayDoggos(dogs: List<Doggo>) {
-        doggos.clear()
         doggos.addAll(dogs)
         notifyDataSetChanged()
     }

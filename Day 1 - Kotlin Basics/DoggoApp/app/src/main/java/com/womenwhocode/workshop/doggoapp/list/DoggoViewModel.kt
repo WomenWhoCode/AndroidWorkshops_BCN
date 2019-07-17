@@ -37,30 +37,17 @@ class DoggoViewModel(application: Application) : AndroidViewModel(application) {
         return doggos
     }
 
-
-    private fun mixStoredDoggos(listResult: List<Doggo>) {
-        val list = mutableListOf<Doggo>()
-        if (doggos.value.isNullOrEmpty()&& !listResult.isEmpty()) {
-            list.addAll(listResult)
-        } else {
-            list.addAll(doggos.value!!)
-        }
-        list.addAll(doggosPersonal.value!!)
-        doggos.value = list
+    fun getDoggosDataBase(): LiveData<List<Doggo>> {
+        return doggosPersonal
     }
 
-    fun insert(doggo: Doggo) {
-        coroutineScope.launch {
-            repository.insert(doggo)
-        }
-    }
 
     private fun loadDoggos() {
         coroutineScope.launch {
             val getDoggosDeferred = DogApi.retrofitService.getDoggos()
             try {
                 val listResult = getDoggosDeferred.await()
-                mixStoredDoggos(listResult)
+                doggos.value = listResult
                 Log.d("DoggoViewModel", "Success: ${listResult.size} dogs retrieved")
             } catch (e: Exception) {
                 Log.e("DoggoViewModel", "Failure: ${e.message}")

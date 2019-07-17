@@ -1,8 +1,7 @@
-package com.womenwhocode.workshop.doggoapp
+package com.womenwhocode.workshop.doggoapp.form
 
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Button
@@ -10,10 +9,18 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
+import com.womenwhocode.workshop.doggoapp.*
+import com.womenwhocode.workshop.doggoapp.list.DoggoViewModel
 
 class AddDoggoActivity : AppCompatActivity() {
 
     val REQUEST_IMAGE_CAPTURE = 1
+
+    private val viewModel: ShowDoggoViewModel by lazy {
+        ViewModelProviders.of(this).get(ShowDoggoViewModel::class.java)
+    }
+
 
     lateinit var name : EditText
     lateinit var age : EditText
@@ -47,12 +54,8 @@ class AddDoggoActivity : AppCompatActivity() {
     }
 
     private fun displayDogInfo(name: String, age: String, size: String, photo: Bitmap?) {
-        var intent = Intent(this, ShowDoggoActivity::class.java)
-        intent.putExtra(NAME_FIELD,name)
-        intent.putExtra(AGE_FIELD,age)
-        intent.putExtra(SIZE_FIELD,size)
-        intent.putExtra(PHOTO_FIELD,photo)
-        startActivity(intent)
+        viewModel.insert(Doggo(name,age,size,"https://boygeniusreport.files.wordpress.com/2016/11/puppy-dog.jpg?quality=98&strip=all&w=782"))
+        onBackPressed()
     }
 
     private fun takePhoto(){
