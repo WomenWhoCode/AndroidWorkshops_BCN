@@ -44,15 +44,13 @@ class DoggosActivity : AppCompatActivity() {
         recyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         val doggosAdapter = DoggosAdapter()
         recyclerView.adapter = doggosAdapter
-        viewModel.getDoggosPersonal().observe(this,
+        viewModel.getDoggos().observe(this,
             Observer<List<Doggo>> { dogs ->
                 dogs?.let {
                     doggosAdapter.displayDoggos(it)
-                 Log.d("DoggoViewModelAcc", "Success: ${it.size} dogs retrieved from databae")
+                    Log.d("DoggoViewModelAcc", "Success: ${it.size} dogs retrieved from databae")
                 }
             })
-        viewModel.getDoggos().observe(this,
-            Observer<List<Doggo>> { dogs -> dogs?.let { doggosAdapter.displayDoggos(it) } })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
