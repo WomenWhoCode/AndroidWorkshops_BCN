@@ -16,6 +16,6 @@ interface DoggoDao {
     fun getAllDoggos(): LiveData<List<Doggo>>
 
     @Insert
-    suspend fun insert(word: Doggo)
+    suspend fun insert(word: Doggo) : Long
 
 }

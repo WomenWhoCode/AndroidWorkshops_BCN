@@ -37,10 +37,16 @@ class DoggoViewModel(application: Application) : AndroidViewModel(application) {
         return doggos
     }
 
-    fun getDoggosDataBase(): LiveData<List<Doggo>> {
+    fun getDoggosPersonal(): LiveData<List<Doggo>> {
         return doggosPersonal
     }
 
+    fun insert(doggo: Doggo) {
+        coroutineScope.launch {
+            var success = repository.insert(doggo)
+            Log.d("DoggoViewModel", "Success: ${success} dogs retrieved from databae")
+        }
+    }
 
     private fun loadDoggos() {
         coroutineScope.launch {

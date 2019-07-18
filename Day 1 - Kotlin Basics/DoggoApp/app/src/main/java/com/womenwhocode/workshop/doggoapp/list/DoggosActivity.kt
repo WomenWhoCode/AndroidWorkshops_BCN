@@ -1,7 +1,9 @@
 package com.womenwhocode.workshop.doggoapp.list
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -11,6 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.womenwhocode.workshop.doggoapp.form.AddDoggoActivity
 import com.womenwhocode.workshop.doggoapp.Doggo
 import com.womenwhocode.workshop.doggoapp.R
+
 
 class DoggosActivity : AppCompatActivity() {
 
@@ -28,7 +31,12 @@ class DoggosActivity : AppCompatActivity() {
 
     private fun initFavButton() {
         val favButton = findViewById<FloatingActionButton>(R.id.floating_action_button)
-        favButton.setOnClickListener { startActivity(Intent(this, AddDoggoActivity::class.java)) }
+        favButton.setOnClickListener {
+            startActivityForResult(
+                Intent(this, AddDoggoActivity::class.java),
+                NEW_DOGGO_CODE
+            )
+        }
     }
 
     private fun initRecyclerView() {
@@ -36,9 +44,44 @@ class DoggosActivity : AppCompatActivity() {
         recyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         val doggosAdapter = DoggosAdapter()
         recyclerView.adapter = doggosAdapter
-        viewModel.getDoggosDataBase().observe(this,
-              Observer<List<Doggo>> { dogs -> dogs?.let { doggosAdapter.displayDoggos(it) } })
+        viewModel.getDoggosPersonal().observe(this,
+            Observer<List<Doggo>> { dogs ->
+                dogs?.let {
+                    doggosAdapter.displayDoggos(it)
+                 Log.d("DoggoViewModelAcc", "Success: ${it.size} dogs retrieved from databae")
+                }
+            })
         viewModel.getDoggos().observe(this,
-                Observer<List<Doggo>> { dogs -> dogs?.let { doggosAdapter.displayDoggos(it) } })
+            Observer<List<Doggo>> { dogs -> dogs?.let { doggosAdapter.displayDoggos(it) } })
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == NEW_DOGGO_CODE && resultCode == Activity.RESULT_OK) {
+            if (data != null) {
+                val nameExtra = data.extras?.getString(NAME_FIELD)
+                val ageExtra = data.extras?.getString(AGE_FIELD)
+                val sizeExtra = data.extras?.getString(SIZE_FIELD)
+
+                viewModel.insert(
+                    Doggo(
+                        nameExtra!!,
+                        ageExtra!!,
+                        sizeExtra!!,
+                        "https://boygeniusreport.files.wordpress.com/2016/11/puppy-dog.jpg?quality=98&strip=all&w=782"
+                    )
+                )
+            }
+        }
+    }
+
+    companion object {
+        const val NEW_DOGGO_CODE = 1
+        const val NAME_FIELD: String = "NAME"
+        const val AGE_FIELD: String = "AGE"
+        const val SIZE_FIELD: String = "SIZE"
+        const val PHOTO_FIELD: String = "PHOTO"
+
     }
 }
