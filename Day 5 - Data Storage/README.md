@@ -35,7 +35,10 @@ We have been adding several activities to our app but the current structure of t
 The code above tells Android which activity should be started first when the app is launched. In order for `DoggosActivity` to be started first, we need to add the intent filter to it and remove it from `MainActivity`.
 Once you have done that, try running the app. You should see the list of dogs. 
 * The idea is to add dogs to that list and we already have a form for that but now we need a way to access it. Lets add a `FloatingActionButton` to our `DoggosActivity`.
-Open it's layout and drag a FloatingActionButton into the white layout area:
+Go to `app/build.gradle` and add the following dependency at the bottom of the others:
+`implementation 'com.google.android.material:material:1.0.0'`
+
+Open the layout xml file of `DoggosActivity` and drag a FloatingActionButton into the white layout area:
 
 <img src="https://user-images.githubusercontent.com/923280/61550294-5d3f9900-aa52-11e9-8e87-629af2928075.png" width="400">
 
