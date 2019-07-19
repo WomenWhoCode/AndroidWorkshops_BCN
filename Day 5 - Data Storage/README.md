@@ -4,7 +4,7 @@ This course is designed for students who have completed [Day 1](https://github.c
 
 In this course, you will learn about the importance of data persistence when building an Android app. We'll introduce you to the fundamentals of SQL, the programming language needed to interact with an SQLite relational database. SQLite is a commonly used method to store large sets of data locally on an Android device.
 If you haven't used SQLite or if you need to refresh your memory, please read this [introductory document first](https://developer.android.com/courses/extras/sql-primer).
-During the workshop, we will follow this [codelab](https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin/index.html?index=..%2F..index#0)
+During the workshop, we will follow this [CODELAB](https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin/index.html?index=..%2F..index#0).
  
 
 ## What you'll learn
@@ -61,3 +61,4 @@ Here is the full code for the action button:
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"/>
 ```
+Now you need to add a listener to the FAB so when clicked, the user is taken to the `AddDoggoActivity`.
