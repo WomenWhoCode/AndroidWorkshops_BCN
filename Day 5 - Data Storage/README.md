@@ -23,4 +23,16 @@ If you missed the past day check out [Day 1](https://github.com/WomenWhoCode/And
 To work through this codelab, you will need a computer that can run Android Studio (or already has Android Studio installed). Install Android Studio following [this instructions](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Installation.md)
 
 ## Homework
-... Coming soon...
+1) Activities cleanup
+We have been adding several activities to our app but the current structure of the app is not ideal. Lets modify a few things.
+* We want `DoggosActivity`, our list of dogs, to start when we launch the app. Take a look at the `AndroidManifest`. Which activity starts first right now? In case you changed the name it's the activity which contains:
+```
+   <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+   </intent-filter>
+```
+The code above tells Android which activity should be started first when the app is launched. In order for `DoggosActivity` to be started first, we need to add the intent filter to it and remove it from `MainActivity`.
+Once you have done that, try running the app. You should see the list of dogs. 
+* We want to add dogs to that list and we already have a form for that but now we need a way to access it. Lets add a `FloatingActionButton` to our `DoggosActivity`.
+Open it's layout and drag a FloatingActionButton into the white layout area:
