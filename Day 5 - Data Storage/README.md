@@ -94,3 +94,29 @@ You will see that repository is not found. This is because we need to add it to 
 `class DoggoViewModel(private val repository: DoggosRepository = DoggosRepository()): ViewModel() {`
 
 Now you can run your project again, make sure the dogs are still displayed.
+
+### Doggo
+The `Doggo` class has to be modified, the same object that is used to get data from the API will be reused for the database Entity. It's ok for our simple example. Here is how the Doggo data class will look like now:
+
+```
+package com.womenwhocode.workshop.doggoapp
+
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "dogs")
+data class Doggo(
+    @PrimaryKey(autoGenerate = true) val doggoId: Long = 0,
+    val name: String,
+    val age: String,
+    val size: String,
+    val url: String
+)
+```
+Notice how we use doggoId as the primary key and since we do not care about the id, we let the database autogenerate it. It will be set to 0 by default and we cannot call it simply id because the api response already contains an id which is a string. 
+
+### Database
+inside the data package, create a database package. Here you will need to add DoggoDao and DoggosRoomDatabase. Use the codelab code to help you to create these classes.
+The DoggosRoomDatabase onely needs one method:
+`fun getDatabase(context: Context): DoggosRoomDatabase {}`
+`DoggoDao` will have a method to retrieve all the Doggos and one to insert a list of Doggos.
