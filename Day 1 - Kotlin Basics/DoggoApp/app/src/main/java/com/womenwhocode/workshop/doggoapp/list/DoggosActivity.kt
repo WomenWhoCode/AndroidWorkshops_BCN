@@ -1,13 +1,16 @@
 package com.womenwhocode.workshop.doggoapp.list
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.womenwhocode.workshop.doggoapp.AddDoggoActivity
 import com.womenwhocode.workshop.doggoapp.Doggo
 import com.womenwhocode.workshop.doggoapp.R
+import kotlinx.android.synthetic.main.activity_doggos.*
 
 class DoggosActivity : AppCompatActivity() {
 
@@ -20,6 +23,13 @@ class DoggosActivity : AppCompatActivity() {
         setContentView(R.layout.activity_doggos)
 
         initRecyclerView()
+        initFAB()
+    }
+
+    private fun initFAB() {
+        add_doggo.setOnClickListener {
+            startActivity(Intent(this, AddDoggoActivity::class.java))
+        }
     }
 
     private fun initRecyclerView() {
@@ -28,6 +38,13 @@ class DoggosActivity : AppCompatActivity() {
         val doggosAdapter = DoggosAdapter()
         recyclerView.adapter = doggosAdapter
         viewModel.getDoggos().observe(this,
-            Observer<List<Doggo>> { dogs -> dogs?.let { doggosAdapter.displayDoggos(it) } })
+            Observer<List<Doggo>> { dogs ->
+                dogs?.let {
+                    doggosAdapter.displayDoggos(it)
+                    if (it.isEmpty()) {
+                        viewModel.loadDoggos()
+                    }
+                }
+            })
     }
 }

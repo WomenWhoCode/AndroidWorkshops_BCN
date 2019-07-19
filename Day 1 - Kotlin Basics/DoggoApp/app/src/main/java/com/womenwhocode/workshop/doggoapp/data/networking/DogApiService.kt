@@ -1,4 +1,4 @@
-package com.womenwhocode.workshop.doggoapp.networking
+package com.womenwhocode.workshop.doggoapp.data.networking
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
