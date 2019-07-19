@@ -120,3 +120,77 @@ inside the data package, create a database package. Here you will need to add Do
 The DoggosRoomDatabase onely needs one method:
 `fun getDatabase(context: Context): DoggosRoomDatabase {}`
 `DoggoDao` will have a method to retrieve all the Doggos and one to insert a list of Doggos.
+
+### Repository part2
+The Repository needs to be modified to the following code:
+```
+package com.womenwhocode.workshop.doggoapp.data
+
+import android.content.Context
+import com.womenwhocode.workshop.doggoapp.data.database.DoggoDao
+import com.womenwhocode.workshop.doggoapp.data.database.DoggosRoomDatabase
+import com.womenwhocode.workshop.doggoapp.data.networking.DogApi
+
+class DoggosRepository(application: Context) {
+
+    private val dogsDao: DoggoDao = DoggosRoomDatabase.getDatabase(application).doggoDao()
+
+    val allDoggos = dogsDao.getAllDoggos()
+
+    suspend fun downloadDoggos() {
+        val dogs = DogApi.retrofitService.getDoggos().await()
+        dogsDao.insertAll(dogs)
+    }
+}
+```
+Here we are initialising the database, getting the list of all dogs form the database and when needed download dogs calling the API and insert them in the database. Since allDoggos is a [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) whoever is observing that, will get notified if new objects are inserted without having to call the method again.
+
+### ViewModel
+Our ViewModel needs to extend AndroidViewModel instead of ViewModel because we need Application for the database.
+Here is the new signature:
+
+`class DoggoViewModel(application: Application) : AndroidViewModel(application)`
+
+doggos will become:
+
+`private var doggos: LiveData<List<Doggo>>`
+
+The coroutineScope will need IO Dispactcher instead of Main.
+
+We need to add the repository: 
+
+`private var repository: DoggosRepository = DoggosRepository(application)`
+
+Here is the full code of `DoggoViewModel`
+
+```
+class DoggoViewModel(application: Application) : AndroidViewModel(application) {
+
+    private var repository: DoggosRepository = DoggosRepository(application)
+    private var doggos: LiveData<List<Doggo>>
+    private val viewModelJob = Job()
+    private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.IO)
+
+    init {
+        doggos = repository.allDoggos
+    }
+
+    fun getDoggos(): LiveData<List<Doggo>> {
+        return doggos
+    }
+
+    fun loadDoggos() {
+        coroutineScope.launch {
+            repository.downloadDoggos()
+        }
+    }
+}
+```
+In the DoggosActivity, after `doggosAdapter.displayDoggos(it)` we need to add: 
+```
+if (it.isEmpty()) {
+    viewModel.loadDoggos()
+ }
+ ```
+That way, if the database is empty, we will load the dogs from the API. Once the list of dogs is in the database, the API will not be queried again so we save mobile data. In a real life app, there would be a mechanism by which we will check if the local data is too old/outdated and reload.
+                    
