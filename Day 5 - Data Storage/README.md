@@ -23,7 +23,8 @@ If you missed the past day check out [Day 1](https://github.com/WomenWhoCode/And
 To work through this codelab, you will need a computer that can run Android Studio (or already has Android Studio installed). Install Android Studio following [this instructions](https://github.com/WomenWhoCode/AndroidWorkshops_BCN/blob/master/Installation.md)
 
 ## Homework
-1) Activities cleanup
+### Activities cleanup
+
 We have been adding several activities to our app but the current structure of the app is not ideal. Lets modify a few things.
 * We want `DoggosActivity`, our list of dogs, to start when we launch the app. Take a look at the `AndroidManifest`. Which activity starts first right now? In case you changed the name it's the activity which contains:
 ```
@@ -62,3 +63,33 @@ Here is the full code for the action button:
             android:layout_marginBottom="16dp"/>
 ```
 Now you need to add a listener to the FAB so when clicked, the user is taken to the `AddDoggoActivity`.
+
+### Repository
+If you check `DoggoViewModel` class, you will see we are calling the api directly. This is not the best practive and also if we want to gets dogs from different places, we would not be able to. Lets add another layer, the repository.
+First, create a data package. Inside add `DoggosRepository` kotlin class and also move the networking package there (by dragging it).
+This is the repository code:
+```
+package com.womenwhocode.workshop.doggoapp.data
+
+import com.womenwhocode.workshop.doggoapp.Doggo
+import com.womenwhocode.workshop.doggoapp.data.networking.DogApi
+import kotlinx.coroutines.Deferred
+
+class DoggosRepository {
+
+    fun getDoggos(): Deferred<List<Doggo>> {
+        return DogApi.retrofitService.getDoggos()
+    }
+}
+```
+As you can see, now the repository calls the api so we need to update our view model to call the repository instead of the api. Open `DoggoViewModel` and replace the line:
+
+`val getDoggosDeferred = DogApi.retrofitService.getDoggos()`
+by
+
+`val getDoggosDeferred = repository.getDoggos()`
+
+You will see that repository is not found. This is because we need to add it to the constructor. The class signature will become:
+`class DoggoViewModel(private val repository: DoggosRepository = DoggosRepository()): ViewModel() {`
+
+Now you can run your project again, make sure the dogs are still displayed.
