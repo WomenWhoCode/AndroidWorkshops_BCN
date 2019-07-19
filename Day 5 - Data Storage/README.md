@@ -36,3 +36,9 @@ The code above tells Android which activity should be started first when the app
 Once you have done that, try running the app. You should see the list of dogs. 
 * We want to add dogs to that list and we already have a form for that but now we need a way to access it. Lets add a `FloatingActionButton` to our `DoggosActivity`.
 Open it's layout and drag a FloatingActionButton into the white layout area:
+
+<img src="https://user-images.githubusercontent.com/923280/61550294-5d3f9900-aa52-11e9-8e87-629af2928075.png" width="400">
+
+You will see a dialog as on the screenshot below, chose the "ic_menu_add.png" or another resource of your choice.
+
+<img src="https://user-images.githubusercontent.com/923280/61550431-b4de0480-aa52-11e9-9006-0c2c9182a942.png" width="400">
