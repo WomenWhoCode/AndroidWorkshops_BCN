@@ -37,11 +37,27 @@ Once you have done that, try running the app. You should see the list of dogs.
 * The idea is to add dogs to that list and we already have a form for that but now we need a way to access it. Lets add a `FloatingActionButton` to our `DoggosActivity`.
 Go to `app/build.gradle` and add the following dependency at the bottom of the others:
 `implementation 'com.google.android.material:material:1.0.0'`
+After adding that you will see a "sync now" link at the top of the screen. Press that so the IDE downloads the new dependency.
 
-Open the layout xml file of `DoggosActivity` and drag a FloatingActionButton into the white layout area:
+Open the layout xml file of `DoggosActivity` and drag a FloatingActionButton into area below recycler_view. 
 
 <img src="https://user-images.githubusercontent.com/923280/61550294-5d3f9900-aa52-11e9-8e87-629af2928075.png" width="400">
 
 You will see a dialog as on the screenshot below, chose the "ic_menu_add.png" or another resource of your choice.
 
 <img src="https://user-images.githubusercontent.com/923280/61550431-b4de0480-aa52-11e9-9006-0c2c9182a942.png" width="400">
+
+Try placing the FAB at the bottom right of the screen.
+Here is the full code for the action button:
+```
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@android:drawable/ic_menu_add"
+            android:id="@+id/add_doggo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"/>
+```
