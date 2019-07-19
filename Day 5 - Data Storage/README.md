@@ -41,7 +41,7 @@ After adding that you will see a "sync now" link at the top of the screen. Press
 
 Open the layout xml file of `DoggosActivity` and drag a FloatingActionButton into area below recycler_view. 
 
-<img src="https://user-images.githubusercontent.com/923280/61550294-5d3f9900-aa52-11e9-8e87-629af2928075.png" width="400">
+<img src="https://user-images.githubusercontent.com/923280/61551389-5a927300-aa55-11e9-955c-17dea00bd1b9.png" width="300">
 
 You will see a dialog as on the screenshot below, chose the "ic_menu_add.png" or another resource of your choice.
 
