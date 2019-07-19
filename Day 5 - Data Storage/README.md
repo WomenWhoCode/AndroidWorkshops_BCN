@@ -90,6 +90,7 @@ by
 `val getDoggosDeferred = repository.getDoggos()`
 
 You will see that repository is not found. This is because we need to add it to the constructor. The class signature will become:
+
 `class DoggoViewModel(private val repository: DoggosRepository = DoggosRepository()): ViewModel() {`
 
 Now you can run your project again, make sure the dogs are still displayed.
