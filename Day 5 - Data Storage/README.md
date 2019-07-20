@@ -116,9 +116,12 @@ data class Doggo(
 Notice how we use doggoId as the primary key and since we do not care about the id, we let the database autogenerate it. It will be set to 0 by default and we cannot call it simply id because the api response already contains an id which is a string. 
 
 ### Database
-inside the data package, create a database package. Here you will need to add DoggoDao and DoggosRoomDatabase. Use the codelab code to help you to create these classes.
-The DoggosRoomDatabase onely needs one method:
+inside the data package, create a database package. Here you will need to add `DoggoDao` and `DoggosRoomDatabase`. Use the codelab code to help you to create these classes.
+
+The DoggosRoomDatabase only needs one method:
+
 `fun getDatabase(context: Context): DoggosRoomDatabase {}`
+
 `DoggoDao` will have a method to retrieve all the Doggos and one to insert a list of Doggos.
 
 ### Repository part2
