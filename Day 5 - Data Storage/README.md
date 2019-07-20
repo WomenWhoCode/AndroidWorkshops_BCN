@@ -71,23 +71,39 @@ This is the repository code:
 ```
 package com.womenwhocode.workshop.doggoapp.data
 
+import android.content.Context
 import com.womenwhocode.workshop.doggoapp.Doggo
+import com.womenwhocode.workshop.doggoapp.data.database.DoggoDao
+import com.womenwhocode.workshop.doggoapp.data.database.DoggosRoomDatabase
 import com.womenwhocode.workshop.doggoapp.data.networking.DogApi
-import kotlinx.coroutines.Deferred
 
-class DoggosRepository {
+class DoggosRepository(application: Context) {
 
-    fun getDoggos(): Deferred<List<Doggo>> {
-        return DogApi.retrofitService.getDoggos()
+    private val dogsDao: DoggoDao = DoggosRoomDatabase.getDatabase(application).doggoDao()
+
+    //retrieves a list of dogs from the database
+    fun getAllDoggos(): List<Doggo> {
+        return dogsDao.getAllDoggos()
+    }
+
+    //retrieves the list of dogs from the API and inserts it in the database
+    suspend fun downloadDoggos(): List<Doggo> {
+        val dogs = DogApi.retrofitService.getDoggos().await()
+        dogsDao.insertAll(dogs)
+        return getAllDoggos()
     }
 }
 ```
-As you can see, now the repository calls the api so we need to update our view model to call the repository instead of the api. Open `DoggoViewModel` and replace the line:
+As you can see, now the repository calls the api so we need to update our view model to call the repository instead of the api. Open `DoggoViewModel`, getDoggos() will now become:
 
-`val getDoggosDeferred = DogApi.retrofitService.getDoggos()`
-by
-
-`val getDoggosDeferred = repository.getDoggos()`
+```
+fun getDoggos(): MutableLiveData<List<Doggo>> {
+        coroutineScope.launch {
+            doggos.value = loadDoggos()
+        }
+        return doggos
+}
+```
 
 You will see that repository is not found. This is because we need to add it to the constructor. The class signature will become:
 
