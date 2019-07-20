@@ -149,7 +149,7 @@ class DoggosRepository(application: Context) {
     }
 }
 ```
-Here we are initialising the database, getting the list of all dogs form the database and when needed download dogs calling the API and insert them in the database. Since allDoggos is a [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) whoever is observing that, will get notified if new objects are inserted without having to call the method again.
+Here we are initialising the database, getting the list of all dogs form the database and when needed download dogs calling the API and insert them in the database. 
 
 ### ViewModel
 Our ViewModel needs to extend AndroidViewModel instead of ViewModel because we need Application for the database.
