@@ -186,12 +186,7 @@ class DoggoViewModel(application: Application) : AndroidViewModel(application) {
     }
 }
 ```
-In the DoggosActivity, after `doggosAdapter.displayDoggos(it)` we need to add: 
-```
-if (it.isEmpty()) {
-    viewModel.loadDoggos()
- }
- ```
+
 That way, if the database is empty, we will load the dogs from the API. Once the list of dogs is in the database, the API will not be queried again so we save mobile data. In a real life app, there would be a mechanism by which we will check if the local data is too old/outdated and reload.
 
 You can now run the app and it should load a bit faster after the first time.
