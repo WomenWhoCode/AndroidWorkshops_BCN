@@ -157,15 +157,19 @@ Here is the new signature:
 
 `class DoggoViewModel(application: Application) : AndroidViewModel(application)`
 
-doggos will become:
-
-`private var doggos: LiveData<List<Doggo>>`
-
-The coroutineScope will need IO Dispactcher instead of Main.
-
 We need to add the repository: 
 
 `private var repository: DoggosRepository = DoggosRepository(application)`
+
+The method `getDoggos()` will become:
+```
+fun getDoggos(): MutableLiveData<List<Doggo>> {
+        coroutineScope.launch {
+            doggos.value = loadDoggos()
+        }
+        return doggos
+    }
+```
 
 Here is the full code of `DoggoViewModel`
 
