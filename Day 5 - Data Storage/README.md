@@ -174,24 +174,33 @@ fun getDoggos(): MutableLiveData<List<Doggo>> {
 Here is the full code of `DoggoViewModel`
 
 ```
+package com.womenwhocode.workshop.doggoapp.list
+
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
+import com.womenwhocode.workshop.doggoapp.Doggo
+import com.womenwhocode.workshop.doggoapp.data.DoggosRepository
+import kotlinx.coroutines.*
+
+
 class DoggoViewModel(application: Application) : AndroidViewModel(application) {
 
-    private var repository: DoggosRepository = DoggosRepository(application)
-    private var doggos: LiveData<List<Doggo>>
+    private val doggos: MutableLiveData<List<Doggo>> = MutableLiveData()
     private val viewModelJob = Job()
-    private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.IO)
+    private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
+    private var repository: DoggosRepository = DoggosRepository(application)
 
-    init {
-        doggos = repository.allDoggos
-    }
-
-    fun getDoggos(): LiveData<List<Doggo>> {
+    fun getDoggos(): MutableLiveData<List<Doggo>> {
+        coroutineScope.launch {
+            doggos.value = loadDoggos()
+        }
         return doggos
     }
 
-    fun loadDoggos() {
-        coroutineScope.launch {
-            repository.downloadDoggos()
+    private suspend fun loadDoggos(): List<Doggo>? {
+        return withContext(Dispatchers.IO) {
+            repository.getAllDoggos().takeIf { it.isNotEmpty() } ?: repository.downloadDoggos()
         }
     }
 }
