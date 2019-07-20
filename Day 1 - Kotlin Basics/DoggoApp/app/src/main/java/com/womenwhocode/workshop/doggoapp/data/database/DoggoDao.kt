@@ -8,7 +8,7 @@ import com.womenwhocode.workshop.doggoapp.Doggo
 interface DoggoDao {
 
     @Query("SELECT * from dogs ORDER BY name ASC")
-    fun getAllDoggos(): LiveData<List<Doggo>>
+    fun getAllDoggos(): List<Doggo>
 
     @Insert
     fun insert(doggo: Doggo): Long

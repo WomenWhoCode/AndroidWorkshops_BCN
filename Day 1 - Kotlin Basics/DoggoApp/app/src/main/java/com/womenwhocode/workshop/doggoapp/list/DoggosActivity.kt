@@ -41,9 +41,6 @@ class DoggosActivity : AppCompatActivity() {
             Observer<List<Doggo>> { dogs ->
                 dogs?.let {
                     doggosAdapter.displayDoggos(it)
-                    if (it.isEmpty()) {
-                        viewModel.loadDoggos()
-                    }
                 }
             })
     }
