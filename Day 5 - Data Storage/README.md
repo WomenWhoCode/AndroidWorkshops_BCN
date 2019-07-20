@@ -82,20 +82,15 @@ class DoggosRepository {
     }
 }
 ```
-As you can see, now the repository calls the api so we need to update our view model to call the repository instead of the api. Open `DoggoViewModel`, getDoggos() will now become:
+Open DoggoViewModel and replace the line:
 
-```
-fun getDoggos(): MutableLiveData<List<Doggo>> {
-        coroutineScope.launch {
-            doggos.value = loadDoggos()
-        }
-        return doggos
-}
-```
+val getDoggosDeferred = DogApi.retrofitService.getDoggos() by
+
+val getDoggosDeferred = repository.getDoggos()
 
 You will see that repository is not found. This is because we need to add it to the constructor. The class signature will become:
 
-`class DoggoViewModel(private val repository: DoggosRepository = DoggosRepository()): ViewModel() {`
+class DoggoViewModel(private val repository: DoggosRepository = DoggosRepository()): ViewModel() {
 
 Now you can run your project again, make sure the dogs are still displayed.
 
