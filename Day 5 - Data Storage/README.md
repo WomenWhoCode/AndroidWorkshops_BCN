@@ -209,3 +209,6 @@ class DoggoViewModel(application: Application) : AndroidViewModel(application) {
 That way, if the database is empty, we will load the dogs from the API. Once the list of dogs is in the database, the API will not be queried again so we save mobile data. In a real life app, there would be a mechanism by which we will check if the local data is too old/outdated and reload.
 
 You can now run the app and it should load a bit faster after the first time.
+
+### Part2 (Adavanced)
+When clicking the FAB you will open the activity to add a dog but the data is not inserted in the database. Use the knowledge you acquired in the codelab to add the logic to insert the dog in the database.
