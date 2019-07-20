@@ -19,16 +19,15 @@
                 android:name=".HugeDogActivity"
                 android:parentActivityName=".MainActivity">
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".AddDoggoActivity"/>
+        <activity android:name=".ShowDoggoActivity"/>
+        <activity android:name=".list.DoggosActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".AddDoggoActivity"/>
-        <activity android:name=".ShowDoggoActivity"/>
-        <activity android:name=".list.DoggosActivity"/>
     </application>
 
 </manifest>

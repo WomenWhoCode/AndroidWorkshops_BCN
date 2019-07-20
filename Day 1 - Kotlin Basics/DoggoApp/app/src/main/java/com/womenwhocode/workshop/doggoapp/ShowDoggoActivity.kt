@@ -1,11 +1,8 @@
 package com.womenwhocode.workshop.doggoapp
 
-import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.provider.MediaStore
-import android.widget.*
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 const val NAME_FIELD: String = "NAME"

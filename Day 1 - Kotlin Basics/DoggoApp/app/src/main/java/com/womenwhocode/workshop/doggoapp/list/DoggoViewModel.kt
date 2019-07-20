@@ -1,40 +1,30 @@
 package com.womenwhocode.workshop.doggoapp.list
 
-import android.util.Log
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.womenwhocode.workshop.doggoapp.Doggo
-import com.womenwhocode.workshop.doggoapp.networking.DogApi
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import com.womenwhocode.workshop.doggoapp.data.DoggosRepository
+import kotlinx.coroutines.*
 
 
-class DoggoViewModel: ViewModel() {
+class DoggoViewModel(application: Application) : AndroidViewModel(application) {
 
     private val doggos: MutableLiveData<List<Doggo>> = MutableLiveData()
     private val viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
+    private var repository: DoggosRepository = DoggosRepository(application)
 
     fun getDoggos(): MutableLiveData<List<Doggo>> {
-        if (doggos.value.isNullOrEmpty()) {
-            loadDoggos()
+        coroutineScope.launch {
+            doggos.value = loadDoggos()
         }
         return doggos
     }
 
-    private fun loadDoggos() {
-        coroutineScope.launch {
-            val getDoggosDeferred = DogApi.retrofitService.getDoggos()
-            try {
-                val listResult = getDoggosDeferred.await()
-                doggos.value = listResult
-                Log.d("DoggoViewModel", "Success: ${listResult.size} dogs retrieved")
-            } catch (e: Exception) {
-                Log.e("DoggoViewModel", "Failure: ${e.message}")
-            }
+    private suspend fun loadDoggos(): List<Doggo>? {
+        return withContext(Dispatchers.IO) {
+            repository.getAllDoggos().takeIf { it.isNotEmpty() } ?: repository.downloadDoggos()
         }
     }
-
 }
